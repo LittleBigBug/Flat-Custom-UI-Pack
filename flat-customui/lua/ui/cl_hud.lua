@@ -88,10 +88,6 @@ local function drawHud()
     draw.SimpleText(text, "DNAScoreboard18BOLD", w/2-200/2+200*3-100+5, scrh-20-5, color_white)
     draw.SimpleText(math.Round(math.max(0, armor)).. "%", "DNAScoreboard18", w/2-200/2+200*3+tw+7+5-100, scrh-20-5, color_white)
 
-    drawBarThing(ScrW()*.8, 10, xp, color_white, Color(51, 102, 204, 255), w/2-(ScrW()*.8)/2, 10, xpt)
-    draw.SimpleText(tostring(math.Round(xp)) .."/".. tostring(math.Round(xpt)), "DNAScoreboard18", w/2, 10+10, color_white, TEXT_ALIGN_CENTER)
-    draw.SimpleText(tostring(ply:GetNWInt("level")), "DNAScoreboard24", w/2, 10+10+18, color_white, TEXT_ALIGN_CENTER)
-
     health = Lerp(0.1, health, ply:Health())
     armor = Lerp(0.1, armor, ply:Armor())
     money = Lerp(0.1, money, ply:getDarkRPVar("money") or 0)
