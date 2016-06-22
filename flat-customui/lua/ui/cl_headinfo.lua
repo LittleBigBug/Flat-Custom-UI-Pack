@@ -32,7 +32,7 @@ local function headui()
     ang:RotateAroundAxis(ang:Right(), 90)
 
     if icontb[v:SteamID()] == nil then
-      icontb[v:SteamID()] = Material("icon16/" ..(CUI.icons[v:SteamID()] or CUI.icons[v:GetNWString('usergroup') or "user"]).. ".png")
+      icontb[v:SteamID()] = Material("icon16/" ..(CUI.icons[v:SteamID()] or CUI.icons[v:GetNWString('usergroup')] or "user").. ".png")
     end
 
     cam.Start3D2D(pos, Angle(0, ang.y, 90), .1)
