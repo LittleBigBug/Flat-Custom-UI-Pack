@@ -29,13 +29,11 @@ DNA.Scoreboard.Create = function()
     f.y = ScrH()/2-self:GetTall()/2
   end
 
-  local b = vgui.Create("DScrollPanel", f)
+  local b = vgui.Create("DPanel", f)
   b:SetSize(250, f:GetTall()-(f:GetTall()/16)-15)
   b:SetPos(f:GetWide()-5-b:GetWide(), f:GetTall()/16+10)
   b.open = false
   b.wide = not selected and 0 or b:GetWide()
-  local bvar = b:GetVBar()
-  bvar:SetWide( 5 )
   b.Paint = function(self, w, h)
     draw.RoundedBox(0,0+(w-self.wide),0,self.wide,h,Color(51, 102, 204))
     if selected then
