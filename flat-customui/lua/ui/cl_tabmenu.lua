@@ -22,7 +22,7 @@ DNA.Scoreboard.Create = function()
   f.Paint = function(self, w, h)
     draw.RoundedBox(0,0,0,w,h,Color(102, 153, 255))
     draw.RoundedBox(0,5,5,w-10,h/16,Color(51, 102, 204))
-    draw.SimpleText(CUI.tabtitle,"DNAScoreboard32",w/2,15,color_white,TEXT_ALIGN_CENTER)
+    draw.SimpleText(CUI.tabtitle,"DNAScoreboard32",w/2,(h/16)/2+3,color_white,TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
   end
   f.Think = function(self)
     f.x = Lerp(.3, f.x, ScrW()/2-self:GetWide()/2)
@@ -63,7 +63,7 @@ DNA.Scoreboard.Create = function()
     else
       if sdb == nil then
         sdb = vgui.Create("DButton", b)
-        sdb:SetSize(b:GetWide()-20, 40)
+        sdb:SetSize(b:GetWide()-20, 20)
         sdb:SetPos(10, 280)
         sdb:SetText("Copy SteamID")
         sdb.DoClick = function( button )
@@ -71,27 +71,27 @@ DNA.Scoreboard.Create = function()
       	end
         sdb.Paint = function(self, w, h)
           draw.RoundedBox(0, 0, 0, w, h, Color(255, 255, 255))
-          draw.RoundedBox(0,0,0,w,5, Color(0, 25, 255))
+          draw.RoundedBox(0,0,0,w,1, Color(0, 25, 255))
         end
 
         sdb2 = vgui.Create("DButton", b)
-        sdb2:SetSize(b:GetWide()-20, 40)
-        sdb2:SetPos(10, 280+(45))
+        sdb2:SetSize(b:GetWide()-20, 20)
+        sdb2:SetPos(10, 280+(25))
         sdb2:SetText("Open Profile")
         sdb2.DoClick = function( button )
       		gui.OpenURL("http://steamcommunity.com/profiles/" ..tostring(selectply:SteamID64()))
       	end
         sdb2.Paint = function(self, w, h)
           draw.RoundedBox(0, 0, 0, w, h, Color(255, 255, 255))
-          draw.RoundedBox(0,0,0,w,5, Color(0, 25, 255))
+          draw.RoundedBox(0,0,0,w,1, Color(0, 25, 255))
         end
 
         local ug = LocalPlayer():GetNWString('usergroup')
 
         if CUI.staffgroups[ug] then
           sdb4 = vgui.Create("DButton", b)
-          sdb4:SetSize(b:GetWide()-20, 40)
-          sdb4:SetPos(10, 280+(45*2))
+          sdb4:SetSize(b:GetWide()-20, 20)
+          sdb4:SetPos(10, 280+(25*2))
           sdb4:SetText("Ban")
           sdb4.DoClick = function( button )
             -- Being lazy
@@ -111,12 +111,12 @@ DNA.Scoreboard.Create = function()
           end
           sdb4.Paint = function(self, w, h)
             draw.RoundedBox(0, 0, 0, w, h, Color(255, 255, 255))
-            draw.RoundedBox(0,0,0,w,5, Color(0, 25, 255))
+            draw.RoundedBox(0,0,0,w,1, Color(0, 25, 255))
           end
 
           sdb3 = vgui.Create("DButton", b)
-          sdb3:SetSize(b:GetWide()-20, 40)
-          sdb3:SetPos(10, 280+(45*3))
+          sdb3:SetSize(b:GetWide()-20, 20)
+          sdb3:SetPos(10, 280+(25*3))
           sdb3:SetText("Kick")
           sdb3.DoClick = function( button )
         		Derma_StringRequest(
@@ -129,43 +129,43 @@ DNA.Scoreboard.Create = function()
         	end
           sdb3.Paint = function(self, w, h)
             draw.RoundedBox(0, 0, 0, w, h, Color(255, 255, 255))
-            draw.RoundedBox(0,0,0,w,5, Color(0, 25, 255))
+            draw.RoundedBox(0,0,0,w,1, Color(0, 25, 255))
           end
 
           sdb5 = vgui.Create("DButton", b)
-          sdb5:SetSize(b:GetWide()-20, 40)
-          sdb5:SetPos(10, 280+(45*4))
+          sdb5:SetSize(b:GetWide()-20, 20)
+          sdb5:SetPos(10, 280+(25*4))
           sdb5:SetText("Goto")
           sdb5.DoClick = function( button )
             RunConsoleCommand("ulx", "goto", selectply:Nick())
         	end
           sdb5.Paint = function(self, w, h)
             draw.RoundedBox(0, 0, 0, w, h, Color(255, 255, 255))
-            draw.RoundedBox(0,0,0,w,5, Color(0, 25, 255))
+            draw.RoundedBox(0,0,0,w,1, Color(0, 25, 255))
           end
 
           sdb6 = vgui.Create("DButton", b)
-          sdb6:SetSize(b:GetWide()-20, 40)
-          sdb6:SetPos(10, 280+(45*5))
+          sdb6:SetSize(b:GetWide()-20, 20)
+          sdb6:SetPos(10, 280+(25*5))
           sdb6:SetText("Bring")
           sdb6.DoClick = function( button )
             RunConsoleCommand("ulx", "bring", selectply:Nick())
         	end
           sdb6.Paint = function(self, w, h)
             draw.RoundedBox(0, 0, 0, w, h, Color(255, 255, 255))
-            draw.RoundedBox(0,0,0,w,5, Color(0, 25, 255))
+            draw.RoundedBox(0,0,0,w,1, Color(0, 25, 255))
           end
 
           sdb8 = vgui.Create("DButton", b)
-          sdb8:SetSize(b:GetWide()-20, 40)
-          sdb8:SetPos(10, 280+(45*6))
+          sdb8:SetSize(b:GetWide()-20, 20)
+          sdb8:SetPos(10, 280+(25*6))
           sdb8:SetText("Teleport and Jail")
           sdb8.DoClick = function( button )
             RunConsoleCommand("ulx", "jailtp", selectply:Nick())
           end
           sdb8.Paint = function(self, w, h)
             draw.RoundedBox(0, 0, 0, w, h, Color(255, 255, 255))
-            draw.RoundedBox(0,0,0,w,5, Color(0, 25, 255))
+            draw.RoundedBox(0,0,0,w,1, Color(0, 25, 255))
           end
         end
 
